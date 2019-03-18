@@ -6,15 +6,20 @@
     <title>Main Doc</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
+
 <body id="body">
+
     <audio id="sound">
         <source src="explosion.mp3" type="audio/mpeg">
-    </audio>
+
+        </audio>
     <img src="images/zombie.jpg" id="zombie">
     <img src="images/zombie.jpg" id="zombie1">
     <img src="images/stop.png" id="stop"> 
+
     <p id="para">Your Score is <span id="score">0</span> </p>
-    <script>
+
+<script>
         let count = 0
         function shift2(){
             document.getElementById("zombie").src="images/zombie.jpg"
@@ -31,8 +36,8 @@
             }
             document.getElementById("zombie").style.top = y+'px'
             document.getElementById("score").innerHTML=count
-            
         }
+    
         function shift1(){
             document.getElementById("zombie1").src="images/zombie.jpg"
             let width1 = window.innerWidth 
@@ -49,11 +54,13 @@
             document.getElementById("zombie1").style.top = y1+'px'
             document.getElementById("score").innerHTML=count
         }
+
         function replace(){
             document.getElementById("sound").play()
             document.getElementById("zombie").src="images/explosion.png"
             count++
         }
+
         function replace1(){
             document.getElementById("sound").play()
             document.getElementById("zombie1").src="images/explosion.png"
@@ -61,6 +68,7 @@
             
             
         }
+
         function quitgame(){
             count = 0
             document.getElementById("zombie").style="initial"
@@ -68,11 +76,14 @@
             clearInterval(x)
             clearInterval(y)
         }
+
         let x = setInterval(shift1, 2000)
         let y = setInterval(shift2, 2000)
         document.getElementById("zombie").onclick=replace
         document.getElementById("stop").onclick=quitgame
         document.getElementById("zombie1").onclick=replace1
+
     </script>
+
 </body>
 </html>

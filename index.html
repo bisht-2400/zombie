@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Main Doc</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body id="body">
+    <audio id="sound">
+        <source src="explosion.mp3" type="audio/mpeg">
+    </audio>
+    <img src="images/zombie.jpg" id="zombie">
+    <img src="images/zombie.jpg" id="zombie1">
+    <img src="images/stop.png" id="stop"> 
+    <p id="para">Your Score is <span id="score">0</span> </p>
+    <script>
+        let count = 0
+        function shift2(){
+            document.getElementById("zombie").src="images/zombie.jpg"
+            let width = window.innerWidth 
+            let height = window.innerHeight
+            let x = Math.floor(Math.random()*(width-177))
+            if (x < 0){
+                x = 0
+            }
+            document.getElementById("zombie").style.left = x +'px'
+            let y = Math.floor(Math.random()*(height-284))
+            if (y < 0){
+                y = 0
+            }
+            document.getElementById("zombie").style.top = y+'px'
+            document.getElementById("score").innerHTML=count
+            
+        }
+        function shift1(){
+            document.getElementById("zombie1").src="images/zombie.jpg"
+            let width1 = window.innerWidth 
+            let height1 = window.innerHeight
+            let x1 = Math.floor(Math.random()*(width1-177))
+            if (x1 < 0){
+                x1 = 0
+            }
+            document.getElementById("zombie1").style.left = x1 +'px'
+            let y1 = Math.floor(Math.random()*(height1-284))
+            if (y1 < 0){
+                y1 = 0
+            }
+            document.getElementById("zombie1").style.top = y1+'px'
+            document.getElementById("score").innerHTML=count
+        }
+        function replace(){
+            document.getElementById("sound").play()
+            document.getElementById("zombie").src="images/explosion.png"
+            count++
+        }
+        function replace1(){
+            document.getElementById("sound").play()
+            document.getElementById("zombie1").src="images/explosion.png"
+            count++
+            
+            
+        }
+        function quitgame(){
+            count = 0
+            document.getElementById("zombie").style="initial"
+            document.getElementById("zombie1").style.display="none"
+            clearInterval(x)
+            clearInterval(y)
+        }
+        let x = setInterval(shift1, 2000)
+        let y = setInterval(shift2, 2000)
+        document.getElementById("zombie").onclick=replace
+        document.getElementById("stop").onclick=quitgame
+        document.getElementById("zombie1").onclick=replace1
+    </script>
+</body>
+</html>
